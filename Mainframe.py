@@ -1,7 +1,8 @@
 from MarketDownload import LoadMarketInitiation
 from YieldCurveGeneration import *
 from PositionGenerator import *
-
+from PositionReview import *
+from ALMCalculator.Frames.CashflowProjection import *
 
 global Mainframe
 
@@ -35,7 +36,7 @@ PositionGeneratorButton = Button(Positionframe, text='Generate Positions', highl
                                  command=GeneratePosition)
 PositionGeneratorButton.grid(row=0, column=0, padx=1, pady=1)
 
-PositionReviewButton = Button(Positionframe, text='Position Review', highlightbackground='#CDB79E')
+PositionReviewButton = Button(Positionframe, text='Position Review', highlightbackground='#CDB79E', command = ReviewPositions)
 PositionReviewButton.grid(row=1, column=0, padx=1, pady=1)
 
 # Analytics Frame with analytics configuration activities to be positioned under
@@ -47,7 +48,7 @@ Analyticsframe.grid(row=0, column=1, padx=5, pady=5)
 EVEAnalyticsButton = Button(Analyticsframe, text='EVE Calculator', highlightbackground='#CDB79E')
 EVEAnalyticsButton.grid(row=0, column=0, padx=1, pady=1)
 
-CashflowgeneratorButton = Button(Analyticsframe, text='Cash Flow Forecast', highlightbackground='#CDB79E')
+CashflowgeneratorButton = Button(Analyticsframe, text='Cash Flow Forecast', highlightbackground='#CDB79E',command=CF_Forecast)
 CashflowgeneratorButton.grid(row=1, column=0, padx=1, pady=1)
 
 # Report Frame reporting activities to be positioned under
